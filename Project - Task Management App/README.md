@@ -2,6 +2,8 @@
 
 A Task Manager dashboard featuring a responsive UI, real-time database, and complete CRUD operations. Built with HTML, CSS, JavaScript, Python (Flask), and MySQL.
 
+Demo Video - https://drive.google.com/file/d/1okAd2PJCYiOVtmr2RZmIyfCw4pfQutlb/view?usp=sharing
+
 ## Prerequisites
 
 1. **Python 3**: Make sure you have Python installed. You can check with:
