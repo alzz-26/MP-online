@@ -1,0 +1,368 @@
+/* Custom Powder Blue Flat CSS Design */
+:root {
+    --bg-color: #b0c4de; /* Solid Powder Blue */
+    --card-bg: #ffffff;
+    --card-border: #91a8c4;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --text-muted: #64748b;
+    --accent-primary: #4682b4; /* Steel Blue */
+    --accent-secondary: #2f5c8f;
+    --border-color: #cbd5e1;
+    --success-color: #10b981;
+    --success-bg: #ecfdf5;
+    --error-color: #ef4444;
+    --error-bg: #fef2f2;
+    --font-stack: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color); /* Static, no gradient */
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 3rem 1rem;
+}
+
+/* Layout Container */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Alert Banner */
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--error-bg);
+    border: 2px solid var(--error-color);
+    border-radius: 8px;
+    padding: 1rem;
+    color: #991b1b;
+}
+
+.alert-banner.hidden {
+    display: none !important;
+}
+
+.alert-icon {
+    font-size: 1.5rem;
+}
+
+.alert-content {
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* App Header */
+.app-header {
+    padding: 0.5rem 0;
+    border-bottom: 2px solid var(--accent-primary);
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+}
+
+/* Dashboard Grid */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 350px 1fr;
+    }
+}
+
+/* Cards (Flat, white, solid borders) */
+.card {
+    background-color: var(--card-bg);
+    border: 2px solid var(--card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 4px 4px 0px rgba(47, 92, 143, 0.15); /* Solid offset shadow, no fuzzy gradient shadows */
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-secondary);
+}
+
+.records-count {
+    font-size: 0.8rem;
+    background: #e2e8f0;
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+/* Form Styles */
+#task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+/* Form Inputs (Flat, solid borders) */
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    background-color: #ffffff;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.65rem 0.85rem;
+    color: var(--text-primary);
+    font-family: var(--font-stack);
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-primary);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Buttons (Solid, flat colors) */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    padding: 0.65rem 1.25rem;
+    font-family: var(--font-stack);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-primary);
+    color: #ffffff;
+    border-color: var(--accent-secondary);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-secondary);
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: var(--text-primary);
+    border-color: #cbd5e1;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    border-radius: 4px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.form-actions {
+    margin-top: 0.5rem;
+}
+
+.form-actions .btn {
+    width: 100%;
+}
+
+/* Tasks Checklist List Layout */
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    background-color: #ffffff;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.task-item:hover {
+    border-color: var(--card-border);
+    background-color: #f8fafc;
+}
+
+/* Completed Task state styling */
+.task-item.completed {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+.task-item.completed .task-desc {
+    color: var(--text-muted);
+}
+
+/* Custom Circle Checkbox UI */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.2rem;
+}
+
+.task-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+    font-size: 0.7rem;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.task-checkbox.checked {
+    background-color: var(--accent-primary);
+    border-color: var(--accent-secondary);
+}
+
+.task-checkbox.checked::after {
+    content: "✓";
+}
+
+/* Content Area inside task list item */
+.task-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.task-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.task-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    white-space: pre-line; /* Renders linebreaks nicely */
+}
+
+.task-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+}
+
+/* Actions panel in card */
+.task-actions {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.action-btn {
+    background: none;
+    border: 1px solid #cbd5e1;
+    cursor: pointer;
+    font-size: 0.85rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.action-btn:hover {
+    background-color: #f1f5f9;
+    border-color: #94a3b8;
+}
+
+/* Loading/Empty State */
+.loading-state,
+.empty-state {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: var(--text-muted);
+}
+
+.loading-spinner {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    border-top-color: var(--accent-primary);
+    margin: 0 auto 0.75rem;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

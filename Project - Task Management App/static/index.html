@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks Management App</title>
+    <!-- Outfit Font from Google Fonts for a clean, modern aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <!-- DB Alert Banner (hidden by default) -->
+        <div id="db-alert" class="alert-banner hidden">
+            <span class="alert-icon">⚠️</span>
+            <div class="alert-content">
+                <strong>Database Connection Issue:</strong>
+                <span id="db-alert-msg">Could not connect to MySQL. Please verify that MySQL service is running and update credentials in `app.py`.</span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="app-header">
+            <h1>My Tasks</h1>
+            <h3>Prepared by -> Alisha Basa - IN26011102 - Batch 9A - Software Engineering and Developement Internship</h3>
+        </header>
+
+        <!-- Main Dashboard Layout -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Side: Task Form -->
+            <section class="card form-card">
+                <div class="card-header">
+                    <h2 id="form-title">Add Task</h2>
+                    <button type="button" id="reset-btn" class="btn btn-secondary btn-sm hidden">Cancel Edit</button>
+                </div>
+                
+                <form id="task-form">
+                    <input type="hidden" id="task-id" value="">
+
+                    <!-- Task Title -->
+                    <div class="form-group">
+                        <label for="task-title">Task Title:</label>
+                        <input type="text" id="task-title" placeholder="e.g. Buy groceries" required autocomplete="off">
+                    </div>
+
+                    <!-- Task Description -->
+                    <div class="form-group">
+                        <label for="task-description">Description:</label>
+                        <textarea id="task-description" placeholder="e.g. Milk, eggs, bread, coffee..." rows="4"></textarea>
+                    </div>
+
+                    <!-- Completed status hidden in create, only active when editing or toggled on cards -->
+                    <div class="form-group" id="completed-group">
+                        <label for="task-completed">Status:</label>
+                        <select id="task-completed">
+                            <option value="false">Pending</option>
+                            <option value="true">Completed</option>
+                        </select>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">Add Task</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Right Side: Live Task List -->
+            <section class="card list-card">
+                <div class="card-header">
+                    <h2>Task List</h2>
+                    <span class="records-count" id="records-count">0 Tasks</span>
+                </div>
+                
+                <!-- Flat task list container (replaces table for a standard mobile tasks list layout) -->
+                <div class="tasks-list" id="tasks-list">
+                    <!-- Tasks will be rendered here dynamically -->
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Connecting to database...</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- JavaScript logic -->
+    <script src="app.js"></script>
+</body>
+</html>
